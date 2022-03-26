@@ -8,25 +8,37 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "drupal-packages": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
         "composer/installers": "^1.9",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3"
+        "drupal/core-recommended": "^9.3",
+        "phpro/grumphp-shim": "^1.10"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "preferred-install": {
+            "*": "source"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "ergebnis/composer-normalize": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "phpro/grumphp-shim": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
@@ -84,8 +96,5 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
-    },
-    "require-dev": {
-        "vijaycs85/drupal-quality-checker": "^1.5"
     }
 }

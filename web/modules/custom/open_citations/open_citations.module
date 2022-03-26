@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Open citations module file.
+ */
+
+use Drupal\open_citations\Entity\node\Publication;
+
+/**
+ * Implements hook_entity_bundle_info_alter().
+ */
+function open_citations_entity_bundle_info_alter(array &$bundles): void {
+  if (isset($bundles['node']['publication'])) {
+    $bundles['node']['publication']['class'] = Publication::class;
+  }
+}

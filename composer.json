@@ -19,6 +19,8 @@
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
+        "drupal/devel": "^4.1",
+        "drush/drush": "^11.0",
         "phpro/grumphp-shim": "^1.10"
     },
     "conflict": {

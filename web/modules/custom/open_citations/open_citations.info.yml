@@ -1,0 +1,5 @@
+name: 'Open Citations Demo'
+type: module
+description: 'Open Citations demo of various batch processing features in Drupal.'
+core_version_requirement: ^9.0
+package: 'Custom'

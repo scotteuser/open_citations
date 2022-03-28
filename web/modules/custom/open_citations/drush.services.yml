@@ -1,0 +1,5 @@
+services:
+  open_citations.commands:
+    class: Drupal\open_citations\Commands\CitationsUpdateDrushCommand
+    tags:
+      - { name: drush.command }

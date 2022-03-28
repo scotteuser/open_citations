@@ -47,6 +47,13 @@ class OpenCitationsClient implements ContainerInjectionInterface {
    *   The citations array returned by OpenCitations.
    */
   public function getCitationsForDoi($doi) {
+
+    // To be nice to the OpenCitations API, during demo, we'll cache same
+    // results for a short time.
+    $cache_id = 'citation_for_doi_' . $doi;
+    if ($cache = \Drupal::cache()->get($cache_id)) {
+      return $cache->data;
+    }
     $response = $this->httpClient->request('GET', 'https://opencitations.net/index/api/v1/citations/' . $doi);
     if ($response->getStatusCode() == 200) {
 
@@ -58,7 +65,7 @@ class OpenCitationsClient implements ContainerInjectionInterface {
       }
 
       // For the sake of the demo, let's do a maximum of 5 citations.
-      $max = 5;
+      $max = 2;
       $results = [];
 
       // Build an array of DOIs of the citations for bulk retrieveal of the
@@ -83,6 +90,10 @@ class OpenCitationsClient implements ContainerInjectionInterface {
           }
         }
       }
+
+      // To be nice to the OpenCitations API, during demo, we'll cache same
+      // results for a short time.
+      \Drupal::cache()->set($cache_id, $results, strtotime('+24 hours'));
       return $results;
     }
     return [];

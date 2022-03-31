@@ -3,3 +3,8 @@ type: module
 description: 'Open Citations demo of various batch processing features in Drupal.'
 core_version_requirement: ^9.0
 package: 'Custom'
+dependencies:
+  - drupal:node
+  - drupal:action
+  - drupal:node
+  - views_bulk_operations:views_bulk_operations

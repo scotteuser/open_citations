@@ -8,3 +8,7 @@ dependencies:
   - drupal:action
   - drupal:node
   - views_bulk_operations:views_bulk_operations
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_source_csv:migrate_source_csv
+  - migrate_tools:migrate_tools

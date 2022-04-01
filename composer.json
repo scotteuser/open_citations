@@ -20,6 +20,9 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/devel": "^4.1",
+        "drupal/migrate_plus": "^5.2",
+        "drupal/migrate_source_csv": "^3.5",
+        "drupal/migrate_tools": "^5.1",
         "drupal/views_bulk_operations": "^4.1",
         "drush/drush": "^11.0",
         "phpro/grumphp-shim": "^1.10"

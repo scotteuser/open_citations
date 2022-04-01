@@ -1,0 +1,38 @@
+id: publications_csv_import
+label: Import publications
+migration_group: default
+
+source:
+  plugin: 'csv'
+  path: 'modules/custom/open_citations/assets/csv/publications.csv'
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - id
+  fields:
+    0:
+      name: id
+      label: 'Id'
+    1:
+      name: title
+      label: 'Title'
+    2:
+      name: body
+      label: 'Body'
+    3:
+      name: doi
+      label: 'DOI'
+
+process:
+  title: title
+  body: body
+  type:
+    plugin: default_value
+    default_value: publication
+  field_citations:
+    plugin: citations
+    source: doi
+
+destination:
+  plugin: entity:node

@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Open Citations install file with hook update batch example.
+ */
+
+use Drupal\open_citations\Entity\node\Publication;
+
+/**
+ * Update the citations.
+ */
+function open_citations_update_9001(&$sandbox) {
+
+  // On first load, we need to get the total count to be able to calculate the
+  // percentage. Store that into the $sandbox and it gets passed to each
+  // subsequent run.
+  if (!isset($sandbox['total'])) {
+    $sandbox['total'] = \Drupal::entityQuery('node')
+      ->condition('type', 'publication')
+      ->count()
+      ->execute();
+    $sandbox['current'] = 0;
+
+    if (!$sandbox['total']) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+  }
+
+  // Get the publication.
+  $per_batch = 1;
+  $publication_ids = \Drupal::entityQuery('node')
+    ->condition('type', 'publication')
+    ->range($sandbox['current'], $per_batch)
+    ->execute();
+  if (!$publication_ids) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+  $publication_id = reset($publication_ids);
+
+  // Update the publication citations.
+  /** @var \Drupal\open_citations\Entity\node\Publication $publication */
+  $publication = Publication::load($publication_id);
+  if ($publication) {
+    $publication->updateOpenCitationsCitations();
+    $publication->save();
+  }
+  $sandbox['current']++;
+
+  // Update the total percentage completed.
+  if ($sandbox['current'] >= $sandbox['total']) {
+    $sandbox['#finished'] = 1;
+  }
+  else {
+    $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+  }
+
+  // Send a message to the terminal.
+  return t('"@title" has had its citations updated (@percentage of @total publications).', [
+    '@title' => $publication ? $publication->label() : 'Unknown',
+    '@percentage' => round(($sandbox['current'] / $sandbox['total']) * 100) . '%',
+    '@total' => $sandbox['total'],
+  ]);
+}

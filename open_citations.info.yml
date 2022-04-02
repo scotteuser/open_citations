@@ -7,6 +7,7 @@ dependencies:
   - drupal:node
   - drupal:action
   - drupal:node
+  - devel_generate:devel_generate
   - views_bulk_operations:views_bulk_operations
   - drupal:migrate
   - migrate_plus:migrate_plus

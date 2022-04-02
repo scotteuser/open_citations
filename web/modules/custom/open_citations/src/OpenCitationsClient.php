@@ -64,7 +64,7 @@ class OpenCitationsClient implements ContainerInjectionInterface {
         return [];
       }
 
-      // For the sake of the demo, let's do a maximum of 5 citations.
+      // For the sake of the demo, let's do a maximum number of citations.
       $max = 2;
       $results = [];
 
@@ -113,7 +113,7 @@ class OpenCitationsClient implements ContainerInjectionInterface {
     if ($response->getStatusCode() == 200) {
       $results = $response->getBody()->getContents();
       $results = Json::decode($results);
-      return reset($results);
+      return (array) reset($results);
     }
     return [];
   }

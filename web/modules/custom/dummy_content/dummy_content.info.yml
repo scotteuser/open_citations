@@ -1,8 +1,0 @@
-name: 'Dummy Content for Demo'
-type: module
-description: 'Dummy content generator plugin for the Open Citations demo.'
-core_version_requirement: ^9.0
-package: 'Custom'
-dependencies:
-  - devel_generate:devel_generate
-  - open_citations:open_citations

@@ -1,106 +1,22 @@
 {
-    "name": "drupal/recommended-project",
-    "description": "Project template for Drupal 9 projects with a relocated document root",
-    "type": "project",
+    "name": "scotteuser/drupal-dev-days-batch-demo",
+    "description": "Open Citations demo of various batch processing features in Drupal.",
+    "type": "drupal-module",
     "license": "GPL-2.0-or-later",
-    "homepage": "https://www.drupal.org/project/drupal",
-    "support": {
-        "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
-        "chat": "https://www.drupal.org/node/314178"
-    },
-    "repositories": {
-        "drupal-packages": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
+    "authors": [
+        {
+            "name": "Scott Euser",
+            "email": "scotteuser@gmail.com",
+            "homepage": "https://scotteuser.com"
         }
+    ],
+    "support": {
+        "issues": "https://github.com/scotteuser/drupal-dev-days-batch-demo/issues",
+        "slack": "https://drupal.slack.com/team/UCZ4NFRJR",
+        "source": "https://github.com/scotteuser/drupal-dev-days-batch-demo"
     },
     "require": {
-        "composer/installers": "^1.9",
-        "drupal/core-composer-scaffold": "^9.3",
-        "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3",
-        "drupal/devel": "^4.1",
-        "drupal/migrate_plus": "^5.2",
-        "drupal/migrate_source_csv": "^3.5",
-        "drupal/migrate_tools": "^5.1",
-        "drupal/views_bulk_operations": "^4.1",
-        "drush/drush": "^11.0",
-        "phpro/grumphp-shim": "^1.10"
-    },
-    "conflict": {
-        "drupal/drupal": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "preferred-install": {
-            "*": "source"
-        },
-        "sort-packages": true,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "ergebnis/composer-normalize": true,
-            "composer/installers": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true,
-            "phpro/grumphp-shim": true
-        }
-    },
-    "extra": {
-        "drupal-scaffold": {
-            "locations": {
-                "web-root": "web/"
-            }
-        },
-        "installer-paths": {
-            "web/core": [
-                "type:drupal-core"
-            ],
-            "web/libraries/{$name}": [
-                "type:drupal-library"
-            ],
-            "web/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "web/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "web/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/Commands/contrib/{$name}": [
-                "type:drupal-drush"
-            ],
-            "web/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "web/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "web/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ]
-        },
-        "drupal-core-project-message": {
-            "include-keys": [
-                "homepage",
-                "support"
-            ],
-            "post-create-project-cmd-message": [
-                "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
-                "<bg=blue;fg=white>                                                         </>",
-                "",
-                "<bg=yellow;fg=black>Next steps</>:",
-                "  * Install the site: https://www.drupal.org/docs/8/install",
-                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                "  * Get support: https://www.drupal.org/support",
-                "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
-            ]
-        }
+        "composer/installers": "~1.0",
+        "drupal/core": "^9.3"
     }
 }

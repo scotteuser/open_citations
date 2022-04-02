@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_citations
+    - node.type.publication
+  module:
+    - open_citations
+id: node.publication.field_citations
+field_name: field_citations
+entity_type: node
+bundle: publication
+label: Citations
+description: 'This field stores the external Publications that reference this Publication. It is automatically kept up to date.'
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: citation

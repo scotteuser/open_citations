@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - open_citations
+id: node.field_citations
+field_name: field_citations
+entity_type: node
+type: citation
+settings: {  }
+module: open_citations
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -2,15 +2,9 @@
 
 ## Installation
 
-Add the following to your `repositories` in composer.json:
+Add the repository to your composer repositories configuration then require it.
 ```
-{
-    "type": "vcs",
-    "url": "git@gitlab.com:sb-dev-team/soapbox-drupal-modules.git"
-}
+composer config repositories.open_citations vcs git@github.com:scotteuser/open_citations.git
+composer require scotteuser/open_citations dev-main
 ```
-Add the following within your `require` in composer.json:
-```
-    "scotteuser/drupal-dev-days-batch-demo": "dev-main",
-```
-Run composer, then use Drush or the Drupal UI to enable the module.
+Then use `drush pm-enable open_citations` or the Drupal UI to enable the module.

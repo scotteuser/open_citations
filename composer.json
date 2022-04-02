@@ -1,5 +1,5 @@
 {
-    "name": "scotteuser/drupal-dev-days-batch-demo",
+    "name": "scotteuser/open_citations",
     "description": "Open Citations demo of various batch processing features in Drupal.",
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",

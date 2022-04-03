@@ -44,7 +44,7 @@ class OpenCitationsClient implements ContainerInjectionInterface {
    *   The DOI for the content item.
    *
    * @return array
-   *   The citations array returned by OpenCitations.
+   *   An array of Citation Titles keyed by their DOIs.
    */
   public function getCitationsForDoi($doi) {
 
@@ -53,8 +53,8 @@ class OpenCitationsClient implements ContainerInjectionInterface {
     $cache_id = 'citation_for_doi_' . $doi;
     if ($cache = \Drupal::cache()->get($cache_id)) {
 
-      // Some pretend execution time, pause for 1 second.
-      sleep(1);
+      // Some pretend execution time, pause for a fraction of a second.
+      sleep(0.25);
       return $cache->data;
     }
     $response = $this->httpClient->request('GET', 'https://opencitations.net/index/api/v1/citations/' . $doi);

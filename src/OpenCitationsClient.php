@@ -52,6 +52,9 @@ class OpenCitationsClient implements ContainerInjectionInterface {
     // results for a short time.
     $cache_id = 'citation_for_doi_' . $doi;
     if ($cache = \Drupal::cache()->get($cache_id)) {
+
+      // Some pretend execution time, pause for 1 second.
+      sleep(1);
       return $cache->data;
     }
     $response = $this->httpClient->request('GET', 'https://opencitations.net/index/api/v1/citations/' . $doi);

@@ -97,7 +97,9 @@ class OpenCitationsBatches {
         if ($node instanceof Publication) {
 
           // Let the editor know info about what is being run.
-          if ($context instanceof \DrushBatchContext) {
+          // If via drush command or drush updatedb, also let the user know the
+          // progress percentage as they will not see the progress bar.
+          if (PHP_SAPI === 'cli') {
             $context['message'] = t('[@percentage] Updating "@item" (@id)', [
               '@percentage' => round(($context['sandbox']['progress'] / $context['sandbox']['max']) * 100) . '%',
               '@item' => $node->label(),

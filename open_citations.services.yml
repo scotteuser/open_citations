@@ -1,4 +1,0 @@
-services:
-  open_citations.client:
-    class: Drupal\open_citations\OpenCitationsClient
-    arguments: ['@http_client']

@@ -1,5 +1,0 @@
-open_citations.citations_update_form:
-  title: 'Update Citations'
-  route_name: open_citations.citations_update_form
-  parent: system.admin_config_content
-  description: 'Trigger updating all citation data from OpenCitations.'

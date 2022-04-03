@@ -1,7 +1,0 @@
-open_citations.citations_update_form:
-  path: '/admin/content/citations-bulk-update'
-  defaults:
-    _form: '\Drupal\open_citations\Form\CitationsUpdateForm'
-    _title: 'Updating citation data from OpenCitations'
-  requirements:
-    _permission: 'bypass node access'
